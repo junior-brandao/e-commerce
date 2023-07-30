@@ -1,11 +1,11 @@
-## Sistema E-Comerce
+## Back-end Sistema E-Comerce
  Projeto de estudo de criação de api, onde uso as seguinte tecnologias:
    #### Linguagens :
         Java jdk 17 
    #### Gerenciamento de projetos :
         Maven
    #### Frameworks :
-        Spring 
+        Springboot, Spring Data JPA, Spring Validation, Spring Cloud, Spring Security, Spring Security Oauth2, Swagger    (Documentação)
    #### DB:
         Em ambiente de testes utilizo o banco de dados H2(em memória),
         e o Postgres em ambiente de desenvolvimento e produção.
@@ -18,8 +18,6 @@
        A documentação da api foi gerada através do Swagger e pode ser acessada em http://localhost:8080/swagger-ui.html#
 
 ### repositório: https://github.com/junior-brandao/e-commerce 
-
-
 
 ### 1- Visão geral do sistema
    O sistema deve manter um cadastro de usuário, produtos e suas categorias. Cada
