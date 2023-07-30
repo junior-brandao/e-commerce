@@ -72,16 +72,11 @@ O escopo funcional do sistema consiste nos seguintes casos de uso:
 
 ![image](https://github.com/junior-brandao/e-commerce/assets/140202509/2ed5d20d-f271-4c28-83fc-6047ec321a5d)
 ### Atores
-| `Ator`| `Responsabilidade`|
-|----|----|
-|Usuário anônimo|Pode realizar casos de uso das áreas públicas do sistema, como 
-catálogo, carrinho de compras, login e sign up|
-|Cliente|Responsável por manter seu próprios dados pessoais no sistema, 
-e pode visualizar histórico dos seus pedidos. Todo usuário
-cadastrado por padrão é um Cliente|
-|Admin |Responsável por acessar a área administrativa do sistema com
-cadastros e relatórios. Admin também pode fazer tudo que
-Cliente faz|
+| `Ator`          | `Responsabilidade`                                                                                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Usuário anônimo | Pode realizar casos de uso das áreas públicas do sistema, como catálogo, carrinho de compras, login e sign up                                       |
+| Cliente         | Responsável por manter seu próprios dados pessoais no sistema,e pode visualizar histórico dos seus pedidos. Todo usuário cadastrado por padrão é um Cliente |
+| Admin           | Responsável por acessar a área administrativa do sistema com cadastros e relatórios. Admin também pode fazer tudo que Cliente faz                            |
 
 
 ## 6 - Casos de uso (detalhamento) 
