@@ -45,7 +45,9 @@
    //fazer projeto
 
 ## 3 - Modelo Conceitual: 
-   //fazer projeto
+![image](https://github.com/junior-brandao/e-commerce/assets/140202509/6ad23843-fccc-4735-a71f-a98cb470d092)
+
+
 
 ## 5- Casos de uso (visão geral) 
    //fazer projeto
