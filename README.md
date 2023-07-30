@@ -48,20 +48,8 @@
 ![image](https://github.com/junior-brandao/e-commerce/assets/140202509/6ad23843-fccc-4735-a71f-a98cb470d092)
 
 ## 5- Casos de uso (visão geral) 
-Caso de uso 	Visão geral 	Acesso 
-Manter produtos 	CRUD de produtos, podendo filtrar itens pelo nome 	Somente Admin 
-Manter categorias 	CRUD de categorias, podendo filtrar itens pelo nome 	Somente Admin 
-Manter usuários 	CRUD de usuários, podendo filtrar itens pelo nome 	Somente Admin 
-Gerenciar carrinho 	Incluir e remover itens do carrinho de compras, bem como alterar as quantidades do produto em cada item 	Público 
-Consultar catálogo 	Listar produtos disponíveis, podendo filtrar produtos pelo nome 	Público 
-Sign up 	Cadastrar-se no sistema 	Público 
-Login 	Efetuar login no sistema 	Público 
-Registrar pedido 	Salvar no sistema um pedido a partir dos dados do carrinho de compras informado 	Usuário logado 
-Atualizar perfil 	Atualizar o próprio cadastro 	Usuário logado 
-Visualizar pedidos 	Visualizar os pedidos que o próprio usuário já fez 	Usuário logado 
-Registrar pagamento 	Salvar no sistema os dados do pagamento de um pedido 	Somente Admin 
-Reportar pedidos 	Relatório de pedidos, podendo ser filtrados por data 	Somente Admin 
-   
+![image](https://github.com/junior-brandao/e-commerce/assets/140202509/2ed5d20d-f271-4c28-83fc-6047ec321a5d)
+
 
 ## 6 - Casos de uso (detalhamento) 
    //fazer projeto
