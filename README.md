@@ -42,10 +42,48 @@
    //fazer projeto
 
 ## 3 - Modelo Conceitual: 
+Este é o modelo conceitual do sistema DSCommerce. Considerações:
+   Cada item de pedido (OrderItem) corresponde a um produto no pedido, com uma
+quantidade. Sendo que o preço também é armazenado no item de pedido por
+questões de histórico (se o preço do produto mudar no futuro, o preço do item de
+pedido continua registrado com o preço real que foi vendido na época).
+   Um usuário pode ter um ou mais "roles", que são os perfis de acesso deste usuário
+no sistema (client, admin).
+
 ![image](https://github.com/junior-brandao/e-commerce/assets/140202509/6ad23843-fccc-4735-a71f-a98cb470d092)
 
-## 5- Casos de uso (visão geral) 
+## 5- Casos de uso (visão geral)
+O escopo funcional do sistema consiste nos seguintes casos de uso:
+
+| Caso de uso                                         | Visão geral                                                                     | Acesso            |
+|-----------------------------------------------------|---------------------------------------------------------------------------------|-------------------|
+| Manter produtos                                     | CRUD de produtos, podendo filtrar itens pelo nome                               | Somente Admin     |
+| Manter categorias                                   | CRUD de categorias, podendo filtrar itens pelo nome                             | Somente Admin     |
+| Manter usuários                                     | CRUD de usuários, podendo filtrar itens pelo nome                               | Somente Admin     |
+| Gerenciar carrinho                                  | Incluir e remover itens do carrinho de compras, bem                             |                   |
+| como alterar as quantidades do produto em cada item | Público                                                                         |                   |
+| Consultar catálogo                                  | Listar produtos disponíveis, podendo filtrar produtos pelo nome                 | Público           |
+| Sign up                                             | Cadastrar-se no sistema                                                         | Público           |
+| Login                                               | Efetuar login no sistema                                                        | Público           |
+| Registrar pedido                                    | Salvar no sistema um pedido a partir dos dados do carrinho de compras informado | `Usuário logado ` |
+| Visualizar pedidos                                  | Visualizar os pedidos que o próprio usuário já fez                              | `Usuário logado ` |
+| Registrar pagamento                                 | Salvar no sistema os dados do pagamento de um                                   |                   |
+| pedido                                              | Somente Admin                                                                   |                   |
+| Reportar pedidos                                    | Relatório de pedidos, podendo ser filtrados por data                            | `Somente Admin `  |
+| Atualizar perfil                                    | Atualizar o próprio cadastro                                                    | `Usuário logado`  |
+
 ![image](https://github.com/junior-brandao/e-commerce/assets/140202509/2ed5d20d-f271-4c28-83fc-6047ec321a5d)
+### Atores
+| `Ator`| `Responsabilidade`|
+|----|----|
+|Usuário anônimo|Pode realizar casos de uso das áreas públicas do sistema, como 
+catálogo, carrinho de compras, login e sign up|
+|Cliente|Responsável por manter seu próprios dados pessoais no sistema, 
+e pode visualizar histórico dos seus pedidos. Todo usuário
+cadastrado por padrão é um Cliente|
+|Admin |Responsável por acessar a área administrativa do sistema com
+cadastros e relatórios. Admin também pode fazer tudo que
+Cliente faz|
 
 
 ## 6 - Casos de uso (detalhamento) 
