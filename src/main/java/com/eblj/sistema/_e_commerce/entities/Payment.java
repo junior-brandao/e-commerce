@@ -15,7 +15,7 @@ public class Payment {
    private Instant moment;
 
    @OneToOne
-   @MapsId//mapea as chaves primarias 
+   @MapsId//mapea as chaves primarias
    private Order order;
 
    public Payment(){}
