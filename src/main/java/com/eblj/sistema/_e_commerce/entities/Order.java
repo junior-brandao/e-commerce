@@ -21,13 +21,17 @@ public class Order {
   @JoinColumn(name = "client_id")
   private User client;
 
+  @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+  private Payment payment;
+
   public Order(){}
 
-  public Order(long id, Instant moment, OrderStatus status, User client) {
+  public Order(long id, Instant moment, OrderStatus status, User client, Payment payment) {
     this.id = id;
     this.moment = moment;
     this.status = status;
     this.client = client;
+    this.payment = payment;
   }
 
   public long getId() {
@@ -60,5 +64,9 @@ public class Order {
 
   public void setClient(User client) {
     this.client = client;
+  }
+
+  public Payment getPayment() {
+    return payment;
   }
 }
