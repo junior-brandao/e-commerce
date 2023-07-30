@@ -10,7 +10,6 @@
         Em ambiente de testes utilizo o banco de dados H2(em memória),
         e o Postgres em ambiente de desenvolvimento e produção.
    ### Configurações para inicialização:
-
        Execute o comando: mvn install para instalar as dependências do maven.
        Após baixar as dependências, execute a aplicação e a api estará rodando em http://localhost:8080.
        Acesso ao banco de dados: http://localhost:8080/h2-console.
