@@ -16,9 +16,11 @@ public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+
+  //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'Z'")
   @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")//salva no banco com utc
   private Instant moment;
-  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  @Enumerated(EnumType.STRING)
   private OrderStatus status;
   @ManyToOne
   @JoinColumn(name = "client_id")
