@@ -52,4 +52,17 @@ public class OrderItem {
   public void setProduct(Product product){
     id.setProduct(product);
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    OrderItem orderItem = (OrderItem) o;
+    return id.equals(orderItem.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return id.hashCode();
+  }
 }

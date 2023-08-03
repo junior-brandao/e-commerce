@@ -1,5 +1,6 @@
 package com.eblj.sistema._e_commerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,6 +19,7 @@ public class Product {
   private String description;
   private Double price;
   private  String imgUrl;
+
 
   @ManyToMany
   @JoinTable(name = "tb_product_category",
@@ -78,6 +80,7 @@ public class Product {
     this.imgUrl = imgUrl;
   }
 
+
   public Set<Category> getCategories() {
     return categories;
   }
@@ -90,4 +93,18 @@ public class Product {
     return items.stream().map(x -> x.getOrder()).toList();
   }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Product product = (Product) o;
+
+    return id == product.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return (int) (id ^ (id >>> 32));
+  }
 }
