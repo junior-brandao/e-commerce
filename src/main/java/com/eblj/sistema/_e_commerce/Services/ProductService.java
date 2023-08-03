@@ -23,6 +23,7 @@ public class ProductService implements ProductServiceImpl {
   //  Optional<Product> resul = productRepository.findById(id);
     Product product = productRepository.findById(id).get();
   //  ProductDTO productDTO = new ProductDTO(product);
+    product.convertoProduct();
     return new ProductDTO(product);
   }
 }

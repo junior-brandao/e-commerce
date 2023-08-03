@@ -39,7 +39,8 @@
    pode acessar os cadastros de usuários, produtos e categorias.
 
 ## 2 - Protótipos de tela: 
-   //fazer projeto
+
+https://www.figma.com/file/ZrGNVNG0kZL6txDv4G8P6s/DSCommerce
 
 ## 3 - Modelo Conceitual: 
 Este é o modelo conceitual do sistema DSCommerce. Considerações:

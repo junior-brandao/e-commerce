@@ -1,7 +1,9 @@
 package com.eblj.sistema._e_commerce.entities;
 
+import com.eblj.sistema._e_commerce.dtos.ProductDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -91,6 +93,12 @@ public class Product {
 
   public List<Order> getOrders() {
     return items.stream().map(x -> x.getOrder()).toList();
+  }
+
+  public ProductDTO convertoProduct(){
+    ProductDTO productDTO = new ProductDTO();
+    BeanUtils.copyProperties(this,productDTO);
+    return productDTO;
   }
 
   @Override
