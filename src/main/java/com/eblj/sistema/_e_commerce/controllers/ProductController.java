@@ -48,4 +48,10 @@ public class ProductController {
     return ResponseEntity.ok(dto);
   }
 
+  @DeleteMapping(value = "/{id}")
+  public ResponseEntity<Void> delete( @PathVariable(value = "id") Long id) {
+    productService.delete(id);
+    return ResponseEntity.noContent().build();// retor codigo 204 , não tem corpo na resposta
+  }
+
 }

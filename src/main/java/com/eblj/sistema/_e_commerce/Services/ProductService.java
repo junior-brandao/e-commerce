@@ -9,4 +9,5 @@ public interface ProductService {
    Page<ProductDTO> findAll(Pageable pageable);
    ProductDTO insert(ProductDTO dto);
    ProductDTO update(Long id,ProductDTO dto);
+   void delete(Long id);
 }
