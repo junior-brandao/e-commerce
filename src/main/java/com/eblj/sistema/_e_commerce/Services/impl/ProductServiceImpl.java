@@ -10,8 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class ProductServiceImpl  implements ProductService {
 
@@ -39,14 +37,26 @@ public class ProductServiceImpl  implements ProductService {
   @Override
   @Transactional
   public ProductDTO insert(ProductDTO dto) {
-    Product result = new Product();
-    result.setId(dto.getId());
-    result.setDescription(dto.getDescription());
-    result.setName(dto.getName());
-    result.setImgUrl(dto.getImgUrl());
-    result.setPrice(dto.getPrice());
-    productRepository.save(result);
-    return new ProductDTO(result);
+    Product entity = new Product();
+    copyDtoToEntity(dto,entity);
+    productRepository.save(entity);
+    return new ProductDTO(entity);
+  }
+
+  @Override
+  @Transactional
+  public ProductDTO update(Long id,ProductDTO dto){
+    Product entity = productRepository.getReferenceById(id);//objeto monitorado pela JPA, porem não existe consulta ao BD
+    copyDtoToEntity(dto,entity);
+    productRepository.save(entity);
+    return new ProductDTO(entity);
+  }
+
+  private void copyDtoToEntity(ProductDTO dto, Product entity) {
+    entity.setDescription(dto.getDescription());
+    entity.setName(dto.getName());
+    entity.setImgUrl(dto.getImgUrl());
+    entity.setPrice(dto.getPrice());
   }
 
 }

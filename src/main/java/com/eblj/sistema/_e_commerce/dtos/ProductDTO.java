@@ -1,7 +1,6 @@
 package com.eblj.sistema._e_commerce.dtos;
 
 import com.eblj.sistema._e_commerce.entities.Product;
-import org.springframework.beans.BeanUtils;
 
 public class ProductDTO {
 
