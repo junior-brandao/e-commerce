@@ -36,4 +36,17 @@ public class ProductServiceImpl  implements ProductService {
     return product.map(x -> new ProductDTO(x));
   }
 
+  @Override
+  @Transactional
+  public ProductDTO insert(ProductDTO dto) {
+    Product result = new Product();
+    result.setId(dto.getId());
+    result.setDescription(dto.getDescription());
+    result.setName(dto.getName());
+    result.setImgUrl(dto.getImgUrl());
+    result.setPrice(dto.getPrice());
+    productRepository.save(result);
+    return new ProductDTO(result);
+  }
+
 }

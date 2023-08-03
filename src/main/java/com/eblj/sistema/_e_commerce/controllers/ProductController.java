@@ -7,12 +7,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.util.List;
+import java.net.URI;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -21,15 +20,25 @@ public class ProductController {
    @Autowired
    private ProductServiceImpl productService;
    @GetMapping(value = "/{id}")
-   public ProductDTO findById(@PathVariable(value = "id") Long id){
+   public ResponseEntity<ProductDTO> findById(@PathVariable(value = "id") Long id){
       ProductDTO productDTO = productService.findById(id);
-      return productDTO;
+      return   ResponseEntity.ok(productDTO);
    }
 
    @GetMapping
-   public Page<ProductDTO> findAll(@PageableDefault(page = 0,size = 10,sort = "id", direction = Sort.Direction.ASC)
+   public ResponseEntity<Page<ProductDTO>> findAll(@PageableDefault(page = 0,size = 10,sort = "id", direction = Sort.Direction.ASC)
                                  Pageable pageable){
-     return productService.findAll(pageable);
+     Page<ProductDTO> productDTOS = productService.findAll(pageable);
+     return ResponseEntity.ok(productDTOS);
    }
 
+   @PostMapping
+   public ResponseEntity<ProductDTO> insert( @RequestBody ProductDTO dto){
+     dto =  productService.insert(dto);
+     //return ResponseEntity.status(HttpStatus.CREATED).body(productDTO);
+      //outra forma(cria no header o path o produto salvo)
+      URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+              .buildAndExpand(dto.getId()).toUri();
+      return ResponseEntity.created(uri).body(dto);
+   }
 }
