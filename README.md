@@ -1,4 +1,5 @@
 ## Back-end Sistema E-Comerce
+###### E-mail: edilson_brandaojunior@hotmail.com
  Projeto de estudo de criação de api, onde uso as seguinte tecnologias:
    #### Linguagens :
         Java jdk 17 
