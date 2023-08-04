@@ -2,6 +2,7 @@ package com.eblj.sistema._e_commerce.controllers;
 
 import com.eblj.sistema._e_commerce.Services.impl.ProductServiceImpl;
 import com.eblj.sistema._e_commerce.dtos.ProductDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +34,7 @@ public class ProductController {
    }
 
    @PostMapping
-   public ResponseEntity<ProductDTO> insert( @RequestBody ProductDTO dto){
+   public ResponseEntity<ProductDTO> insert( @Valid @RequestBody ProductDTO dto){
      dto =  productService.insert(dto);
      //return ResponseEntity.status(HttpStatus.CREATED).body(productDTO);
       //outra forma(cria no header o path o produto salvo)
@@ -43,7 +44,7 @@ public class ProductController {
    }
 
   @PutMapping(value = "/{id}")
-  public ResponseEntity<ProductDTO> update( @PathVariable(value = "id") Long id, @RequestBody ProductDTO dto) {
+  public ResponseEntity<ProductDTO> update(@PathVariable(value = "id") Long id,@Valid @RequestBody ProductDTO dto) {
     dto =  productService.update(id,dto);
     return ResponseEntity.ok(dto);
   }

@@ -1,12 +1,18 @@
 package com.eblj.sistema._e_commerce.dtos;
 
 import com.eblj.sistema._e_commerce.entities.Product;
+import jakarta.validation.constraints.*;
 
 public class ProductDTO {
 
   private long id;
+  @Size(min =3 , max =80,message = "Nome deve ter no mínimo {min} e no máximo {max} caracteres.")
+  @NotBlank(message = "Campo obrigatório")//não acenta vazio (""), nem espaço em branco("  ") e nem null
   private String name;
+  @Size(min = 10, message = "Desceição precisa ter no mínimo {min} caracteres.")
+  @NotBlank(message = "Campo obrigatório")
   private String description;
+  @Positive(message = "Valor deve ser positivo")
   private Double price;
   private  String imgUrl;
 
