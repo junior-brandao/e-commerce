@@ -187,5 +187,5 @@ public class AuthorizationServerConfig {
 		}
 		return keyPair;
 	}
-	
+
 }
