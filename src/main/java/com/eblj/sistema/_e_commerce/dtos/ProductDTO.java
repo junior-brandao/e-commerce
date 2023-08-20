@@ -1,7 +1,11 @@
 package com.eblj.sistema._e_commerce.dtos;
 
+import com.eblj.sistema._e_commerce.entities.Category;
 import com.eblj.sistema._e_commerce.entities.Product;
 import jakarta.validation.constraints.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDTO {
 
@@ -15,6 +19,8 @@ public class ProductDTO {
   @Positive(message = "Valor deve ser positivo")
   private Double price;
   private  String imgUrl;
+  @NotEmpty(message = "Deve ter no mínimo uma categoria")
+  private List<CategoryDTO> categories = new ArrayList<>();
 
   public ProductDTO(){}
 
@@ -32,6 +38,9 @@ public class ProductDTO {
     description = entity.getDescription();
     price = entity.getPrice();
     imgUrl = entity.getImgUrl();
+    for(Category cat: entity.getCategories()){
+      categories.add(new CategoryDTO(cat));
+    }
   }
 
   public long getId() {
@@ -54,5 +63,7 @@ public class ProductDTO {
     return imgUrl;
   }
 
-
+  public List<CategoryDTO> getCategories() {
+    return categories;
+  }
 }

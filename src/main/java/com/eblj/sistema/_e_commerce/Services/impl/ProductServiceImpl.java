@@ -3,8 +3,10 @@ package com.eblj.sistema._e_commerce.Services.impl;
 import com.eblj.sistema._e_commerce.Services.ProductService;
 import com.eblj.sistema._e_commerce.Services.exceptions.DataBaseException;
 import com.eblj.sistema._e_commerce.Services.exceptions.ResourceNotFoundException;
+import com.eblj.sistema._e_commerce.dtos.CategoryDTO;
 import com.eblj.sistema._e_commerce.dtos.ProductDTO;
 import com.eblj.sistema._e_commerce.dtos.ProductMinDTO;
+import com.eblj.sistema._e_commerce.entities.Category;
 import com.eblj.sistema._e_commerce.entities.Product;
 import com.eblj.sistema._e_commerce.repositories.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -26,10 +28,7 @@ public class ProductServiceImpl  implements ProductService {
   @Override
   @Transactional(readOnly = true)
   public ProductDTO findById(Long id){
-
-    //  Optional<Product> resul = productRepository.findById(id);
     Product product = productRepository.findById(id).orElseThrow( ()-> new ResourceNotFoundException("Resource not found."));
-    //  ProductDTO productDTO = new ProductDTO(product);
     product.convertoProduct();
     return new ProductDTO(product);
   }
@@ -86,6 +85,14 @@ public class ProductServiceImpl  implements ProductService {
     entity.setName(dto.getName());
     entity.setImgUrl(dto.getImgUrl());
     entity.setPrice(dto.getPrice());
+    //limpa a coleção de categorias e depois atualiza
+    entity.getCategories().clear();
+    for(CategoryDTO catDto:dto.getCategories()){
+      Category cat = new Category();
+      cat.setId(catDto.getId());
+      cat.setName(catDto.getName());
+      entity.getCategories().add(cat);
+    }
   }
 
 }
