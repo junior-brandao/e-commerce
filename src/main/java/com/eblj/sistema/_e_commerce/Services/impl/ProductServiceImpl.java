@@ -29,7 +29,6 @@ public class ProductServiceImpl  implements ProductService {
   @Transactional(readOnly = true)
   public ProductDTO findById(Long id){
     Product product = productRepository.findById(id).orElseThrow( ()-> new ResourceNotFoundException("Resource not found."));
-    product.convertoProduct();
     return new ProductDTO(product);
   }
 
