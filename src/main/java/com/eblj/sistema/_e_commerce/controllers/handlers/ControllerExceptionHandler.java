@@ -1,6 +1,7 @@
 package com.eblj.sistema._e_commerce.controllers.handlers;
 
 import com.eblj.sistema._e_commerce.Services.exceptions.DataBaseException;
+import com.eblj.sistema._e_commerce.Services.exceptions.ForbiddenException;
 import com.eblj.sistema._e_commerce.Services.exceptions.ResourceNotFoundException;
 import com.eblj.sistema._e_commerce.dtos.exceptions.CustomError;
 import com.eblj.sistema._e_commerce.dtos.exceptions.ValidationError;
@@ -40,6 +41,13 @@ public class ControllerExceptionHandler {
     for(FieldError f: e.getBindingResult().getFieldErrors()){
       err.addError(f.getField(),f.getDefaultMessage());
     }
+    return ResponseEntity.status(status).body(err);
+  }
+
+  @ExceptionHandler(ForbiddenException.class)
+  public ResponseEntity<CustomError> forBidden(ForbiddenException e, HttpServletRequest request) {
+    HttpStatus status = HttpStatus.FORBIDDEN;
+    CustomError err = new CustomError(Instant.now(), status.value(), e.getMessage(),request.getRequestURI());
     return ResponseEntity.status(status).body(err);
   }
 

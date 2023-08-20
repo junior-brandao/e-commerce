@@ -28,14 +28,17 @@ public class OrderServiceImpl implements OrderService {
   private UserServiceImpl userService;
   @Autowired
   private ProductRepository productRepository;
-
   @Autowired
   private OrderItemRepository orderItemRepository;
+  @Autowired
+  private AuthService authService;
 
   @Transactional(readOnly = true)
   @Override
   public OrderDTO findById(Long id) {
     Order order = repository.findById(id).orElseThrow( ()-> new ResourceNotFoundException("Resource not found."));
+    //testa se o ide não for admin nem o dono do order
+    authService.validateSelfOrAdmin(order.getClient().getId());
     return new OrderDTO(order);
   }
 
