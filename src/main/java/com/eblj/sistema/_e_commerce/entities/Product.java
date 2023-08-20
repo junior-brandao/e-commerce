@@ -1,7 +1,6 @@
 package com.eblj.sistema._e_commerce.entities;
 
 import com.eblj.sistema._e_commerce.dtos.ProductDTO;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.beans.BeanUtils;
 

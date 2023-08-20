@@ -18,6 +18,7 @@ public class UserDTO {
   public UserDTO(){}
 
   public UserDTO(User entity) {
+
     id = entity.getId();
     name = entity.getName();
     email = entity.getEmail();
@@ -26,8 +27,8 @@ public class UserDTO {
     for(GrantedAuthority role: entity.getRoles()){
        roles.add(role.getAuthority());
     }
-  }
 
+  }
   public long getId() {
     return id;
   }

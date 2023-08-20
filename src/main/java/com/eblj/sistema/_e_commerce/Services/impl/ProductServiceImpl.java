@@ -4,6 +4,7 @@ import com.eblj.sistema._e_commerce.Services.ProductService;
 import com.eblj.sistema._e_commerce.Services.exceptions.DataBaseException;
 import com.eblj.sistema._e_commerce.Services.exceptions.ResourceNotFoundException;
 import com.eblj.sistema._e_commerce.dtos.ProductDTO;
+import com.eblj.sistema._e_commerce.dtos.ProductMinDTO;
 import com.eblj.sistema._e_commerce.entities.Product;
 import com.eblj.sistema._e_commerce.repositories.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -35,9 +36,9 @@ public class ProductServiceImpl  implements ProductService {
 
   @Override
   @Transactional(readOnly = true)
-  public Page<ProductDTO> findAll(String name,Pageable pageable) {
+  public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
     Page<Product> product=  productRepository.searchByName(name,pageable);
-    return product.map(x -> new ProductDTO(x));
+    return product.map(x -> new ProductMinDTO(x));
   }
 
   @Override

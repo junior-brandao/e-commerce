@@ -2,6 +2,7 @@ package com.eblj.sistema._e_commerce.controllers;
 
 import com.eblj.sistema._e_commerce.Services.impl.ProductServiceImpl;
 import com.eblj.sistema._e_commerce.dtos.ProductDTO;
+import com.eblj.sistema._e_commerce.dtos.ProductMinDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,11 +31,11 @@ public class ProductController {
    }
 
    @GetMapping
-   public ResponseEntity<Page<ProductDTO>> findAll(
+   public ResponseEntity<Page<ProductMinDTO>> findAll(
            @PageableDefault(page = 0,size = 10,sort = "id", direction = Sort.Direction.ASC)
            @RequestParam(name = "name",defaultValue = "")String name,Pageable pageable){
-     Page<ProductDTO> productDTOS = productService.findAll(name,pageable);
-     return ResponseEntity.ok(productDTOS);
+     Page<ProductMinDTO> productMinDTOS = productService.findAll(name,pageable);
+     return ResponseEntity.ok(productMinDTOS);
    }
 
    @PreAuthorize("hasRole('ROLE_ADMIN')")
