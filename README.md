@@ -1,6 +1,17 @@
 ## Back-end Sistema E-Comerce
 ###### E-mail: edilson_brandaojunior@hotmail.com
+###### Linkedin: <https://www.linkedin.com/in/juniorbrandao/>
  Projeto de estudo de criação de api, onde uso as seguinte tecnologias:
+
+[![Java](https://jdk.java.net/images/oracle.png)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+[![Spring](/src/assets/spring.png)](https://spring.io/projects/spring-boot)
+
+[![Intellij](/src/assets/intellij.png)](https://www.jetbrains.com/pt-br/idea//)
+
+[![Postman](/src/assets/postman.png)](https://www.postman.com/)
+
+
    #### Linguagens :
         Java jdk 17 
    #### Gerenciamento de projetos :

@@ -23,7 +23,6 @@ public class ProductController {
    @Autowired
    private ProductServiceImpl productService;
 
-   @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_CLIENT')")
    @GetMapping(value = "/{id}")
    public ResponseEntity<ProductDTO> findById(@PathVariable(value = "id") Long id){
       ProductDTO productDTO = productService.findById(id);
