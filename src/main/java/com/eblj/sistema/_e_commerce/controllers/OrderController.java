@@ -32,5 +32,16 @@ public class OrderController {
       return   ResponseEntity.ok(orderDTO);
    }
 
+  @PreAuthorize("hasRole('ROLE_CLIENT')")
+  @PostMapping
+  public ResponseEntity<OrderDTO> insert( @Valid @RequestBody OrderDTO dto){
+    dto =  orderService.insert(dto);
+    //return ResponseEntity.status(HttpStatus.CREATED).body(productDTO);
+    //outra forma(cria no header o path o produto salvo)
+    URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+            .buildAndExpand(dto.getId()).toUri();
+    return ResponseEntity.created(uri).body(dto);
+  }
+
 
 }

@@ -3,6 +3,7 @@ package com.eblj.sistema._e_commerce.dtos;
 import com.eblj.sistema._e_commerce.entities.Order;
 import com.eblj.sistema._e_commerce.entities.OrderItem;
 import com.eblj.sistema._e_commerce.enuns.OrderStatus;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class OrderDTO {
   private OrderStatus status;
   private ClientDTO client;
   private  PaymentDTO payment;
+  @NotEmpty(message = "Pedido deve conter no mínimo um item")
   private List<OrderItemDTO> items = new ArrayList<>();
 
   public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
